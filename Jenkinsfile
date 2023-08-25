@@ -4,6 +4,7 @@ pipeline {
     
     environment {
         IMAGE_TAG = "${BUILD_NUMBER}"
+        DOCKERHUB_CREDENTIALS = credentials('docker-cred')
     }
     
     stages {
@@ -27,9 +28,14 @@ pipeline {
             }
         }
 
+        stage('Login') {
+            steps {
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+            }
+        }
+
         stage('Push the artifacts'){
            steps{
-                withDockerRegistry(credentialsId: 'docker-cred', url: 'https://hub.docker.com/')
                 script{
                     sh '''
                     echo 'Push to Repo'
