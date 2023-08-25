@@ -29,7 +29,7 @@ pipeline {
 
         stage('Push the artifacts'){
            steps{
-                withDockerRegistry(credentialsId: 'docker-cred', url: 'https://hub.docker.com/'),
+                withDockerRegistry(credentialsId: 'docker-cred', url: 'https://hub.docker.com/')
                 script{
                     sh '''
                     echo 'Push to Repo'
