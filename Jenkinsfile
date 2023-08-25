@@ -31,6 +31,7 @@ pipeline {
            steps{
                 script{
                     sh '''
+                    dockerhub credentialsId: 'docker-cred',
                     echo 'Push to Repo'
                     docker push harshmandhu/cicd-e2e:${BUILD_NUMBER}
                     '''
