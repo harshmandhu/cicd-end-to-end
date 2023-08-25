@@ -29,9 +29,9 @@ pipeline {
 
         stage('Push the artifacts'){
            steps{
+                dockerhub credentialsId: 'docker-cred',
                 script{
                     sh '''
-                    dockerhub credentialsId: 'docker-cred',
                     echo 'Push to Repo'
                     docker push harshmandhu/cicd-e2e:${BUILD_NUMBER}
                     '''
