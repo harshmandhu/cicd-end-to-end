@@ -58,9 +58,9 @@ pipeline {
         stage('Update K8S manifest & push to Repo'){
             steps {
                 script{
-                git credentialsId: 'github-token', 
-                url: 'https://github.com/harshmandhu/cicd-manifest',
-                branch: 'master'
+                    git credentialsId: 'github-token', 
+                    url: 'https://github.com/harshmandhu/cicd-manifest',
+                    branch: 'master'
                     {
                     sh '''
                     cat deploy.yaml
