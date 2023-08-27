@@ -72,7 +72,7 @@ pipeline {
                     git remote -v
                     git push https://github.com/harshmandhu/cicd-manifest/.git HEAD:master
                     '''                        
-                    }
+                    
                 }    
             }
         }
