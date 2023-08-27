@@ -68,9 +68,9 @@ pipeline {
                     sed -i "s+harshmandhu/cicd-e2e.*+harshmandhu/cicd-e2e:${BUILD_NUMBER}+g" deploy/deploy.yaml
                     cat deploy/deploy.yaml
                     git add deploy/deploy.yaml
-                    git commit -m 'Updated the deploy yaml | Jenkins Pipeline'
+                    git commit -m 'Updated the deploy.yaml | Jenkins Pipeline'
                     git remote -v
-                    git push https://github.com/harshmandhu/cicd-manifest/deploy.git HEAD:master
+                    git push https://github.com/harshmandhu/cicd-manifest.git HEAD:master
                     '''                        
                     
                 }    
