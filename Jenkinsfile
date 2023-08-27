@@ -65,7 +65,7 @@ pipeline {
 
                   {
                     sh '''
-                    cat deploy.yaml
+                    cat deploy/deploy.yaml
                     sed -i "s/12/${BUILD_NUMBER}/g" deploy.yaml
                     cat deploy.yaml
                     git add deploy.yaml
