@@ -61,8 +61,7 @@ pipeline {
                     git credentialsId: 'github-token', 
                     url: 'https://github.com/harshmandhu/cicd-manifest/deploy',
                     branch: 'master'
-                }
-
+                
                   {
                     sh '''
                     cat deploy/deploy.yaml
@@ -74,6 +73,7 @@ pipeline {
                     git push https://github.com/harshmandhu/cicd-manifest/.git HEAD:master
                     '''                        
                     }
+                }    
             }
         }
     }
