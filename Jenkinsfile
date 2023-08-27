@@ -62,15 +62,15 @@ pipeline {
                 url: 'https://github.com/harshmandhu/cicd-manifest',
                 branch: 'master'
                     {
-                        sh '''
-                        cat deploy.yaml
-                        sed -i '' "s/32/${BUILD_NUMBER}/g" deploy.yaml
-                        cat deploy.yaml
-                        git add deploy.yaml
-                        git commit -m 'Updated the deploy yaml | Jenkins Pipeline'
-                        git remote -v
-                        git push https://github.com/harshmandhu/cicd-manifest.git HEAD:master
-                        '''                        
+                    sh '''
+                    cat deploy.yaml
+                    sed -i '' "s/32/${BUILD_NUMBER}/g" deploy.yaml
+                    cat deploy.yaml
+                    git add deploy.yaml
+                    git commit -m 'Updated the deploy yaml | Jenkins Pipeline'
+                    git remote -v
+                    git push https://github.com/harshmandhu/cicd-manifest.git HEAD:master
+                    '''                        
                     }
                 }
             }
