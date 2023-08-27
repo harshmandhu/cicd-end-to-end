@@ -62,7 +62,7 @@ pipeline {
                     url: 'https://github.com/harshmandhu/cicd-manifest/deploy',
                     branch: 'master'
                 
-                  {
+                    {
                     sh '''
                     cat deploy/deploy.yaml
                     sed -i "s+harshmandhu/cicd-e2e.*+harshmandhu/cicd-e2e:${BUILD_NUMBER}+g" deploy/deploy.yaml
