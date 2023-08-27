@@ -60,8 +60,7 @@ pipeline {
                 script{
                     git credentialsId: 'github-token', 
                     url: 'https://github.com/harshmandhu/cicd-manifest',
-                    branch: 'master'
-                    {
+                    branch: 'master'{
                     sh '''
                     cat deploy.yaml
                     sed -i '' "s/32/${BUILD_NUMBER}/g" deploy.yaml
