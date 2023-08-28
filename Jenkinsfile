@@ -69,7 +69,7 @@ pipeline {
                     git add deploy.yaml
                     git commit -m 'Updated the deploy.yaml | Jenkins Pipeline'
                     git remote -v
-                    git push https://harshmandhu:${GIT_PASSWORD}@github.com/harshmandhu/manifest.git HEAD:master
+                    git push https://harshmandhu:${github-token}@github.com/harshmandhu/manifest.git HEAD:master
                     '''                        
                     
                 }    
