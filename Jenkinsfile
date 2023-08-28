@@ -70,6 +70,9 @@ pipeline {
                     sed -i "s/imagetag/${BUILD_NUMBER}/g" deploy.yaml
                     git add deploy.yaml
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
+                    git credentialsId: 'github-token', 
+                    url: 'https://github.com/harshmandhu/manifest',
+                    branch: 'master';
                     git push https://github.com/harshmandhu/manifest.git HEAD:master
                     '''                        
                     
