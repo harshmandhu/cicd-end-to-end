@@ -70,7 +70,7 @@ pipeline {
                     sed -i "s/imagetag/${BUILD_NUMBER}/g" deploy.yaml
                     git add deploy.yaml
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
-                
+                    git push origin master
                     '''                        
                     
                 }    
