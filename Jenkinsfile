@@ -50,7 +50,7 @@ pipeline {
         stage('Checkout K8S manifest SCM'){
             steps {
                 git credentialsId: 'github-token', 
-                url: 'https://github.com/harshmandhu/cicd-manifest',
+                url: 'https://github.com/harshmandhu/manifest',
                 branch: 'master'
             }
         }
@@ -59,7 +59,7 @@ pipeline {
             steps {
                 script{
                     git credentialsId: 'github-token', 
-                    url: 'https://github.com/harshmandhu/cicd-manifest',
+                    url: 'https://github.com/harshmandhu/manifest',
                     branch: 'master';
                 
                     
