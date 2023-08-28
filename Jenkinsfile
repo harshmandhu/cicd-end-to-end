@@ -64,13 +64,13 @@ pipeline {
                 
                     
                     sh '''
-                    cat deploy.yaml
-                    sed -i '' "s+harshmandhu/cicd-e2e:12+harshmandhu/cicd-e2e:${BUILD_NUMBER}+g" deploy.yaml
-                    cat deploy.yaml
+                    git config user.email "harshmandhu001@gmail.com"
+                    git config user.name "harshmandhu"
+                    BUILD_NUMBER=${BUILD_NUMBER}
+                    sed -i "s/imagetag/${BUILD_NUMBER}/g" deploy.yaml
                     git add deploy.yaml
-                    git commit -m 'Updated the deploy yaml | Jenkins Pipeline'
-                    git remote -v
-                    git push https://github.com/harshmandhu/manifest.git HEAD:master
+                    git commit -m "Update deployment image to version ${BUILD_NUMBER}"
+                    git push https://github-token@github.com/harshmandhu/manifest HEAD:master
                     '''                        
                     
                 }    
