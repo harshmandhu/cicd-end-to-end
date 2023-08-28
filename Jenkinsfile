@@ -68,7 +68,7 @@ pipeline {
                     sed -i "s+harshmandhu/cicd-e2e.*+harshmandhu/cicd-e2e:${BUILD_NUMBER}+g" deploy.yaml
                     git add deploy.yaml
                     git commit -m 'Updated the deploy.yaml | Jenkins Pipeline'
-                    git remote add origin https://github.com/harshmandhu/manifest.git
+                    git remote -v
                     git push --set-upstream origin master
                     '''                        
                     
