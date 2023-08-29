@@ -65,7 +65,7 @@ pipeline {
                     
                     sh '''
                     BUILD_NUMBER=${BUILD_NUMBER}
-                    sed -i "s+harshmandhu/cicd-e2e:*+harshmandhu/cicd-e2e:${BUILD_NUMBER}+g" deploy.yaml
+                    sed -i "s+harshmandhu/cicd-e2e.*+harshmandhu/cicd-e2e:${BUILD_NUMBER}+g" deploy.yaml
                     cat deploy.yaml
 
                     git config --global user.name "harshmandhu"
