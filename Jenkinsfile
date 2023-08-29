@@ -64,17 +64,18 @@ pipeline {
                 
                     
                     sh '''
-                    git config user.email "harshmandhu001@gmail.com"
-                    git config user.name "harshmandhu"
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i "s/imagetag/${BUILD_NUMBER}/g" deploy.yaml
+                    cat deploy.yaml
+
+                    git config --global user.name "harshmandhu"
+                    git config --global user.email "harshmandhu001@gmail.com"
                     git add deploy.yaml
-                    git commit -m "Update deployment image to version ${BUILD_NUMBER}"
-                    git credentialsId: 'github-token', 
-                    url: 'https://github.com/harshmandhu/manifest',
-                    branch: 'master';
-                    git push https://github.com/harshmandhu/manifest.git HEAD:master
+                    git commit -m "Updated Deployment Manifest"
                     '''                        
+                    withCredentials([gitUsernamePassword(credentialsId: 'github-token', gitToolName: 'Default')]) {
+                    sh "git push https://github.com/harshmandhu/manifest master"
+                    }
                     
                 }    
             }         
